@@ -21,6 +21,10 @@ const routes : Routes = [
   },
   {
     path:'users', //localhost:4200/users
+    component:UsersComponent
+  },
+  {
+    path:'users/:id', //localhost:4200/users
     component:UserComponent
   },
   {

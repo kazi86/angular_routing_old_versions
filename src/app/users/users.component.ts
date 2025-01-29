@@ -6,7 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./users.component.css']
 })
 export class UsersComponent {
-  users = [
+
+  public users = [
     {
       id: 1,
       name: 'Max'
@@ -20,4 +21,5 @@ export class UsersComponent {
       name: 'Chris'
     }
   ];
+
 }

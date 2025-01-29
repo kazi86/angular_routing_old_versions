@@ -24,7 +24,7 @@ const routes : Routes = [
     component:UsersComponent
   },
   {
-    path:'users/:id', //localhost:4200/users
+    path:'users/:id/:user-name', //localhost:4200/users
     component:UserComponent
   },
   {

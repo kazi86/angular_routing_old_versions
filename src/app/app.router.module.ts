@@ -7,6 +7,8 @@ import {ServerComponent} from "./servers/server/server.component";
 import {EditServerComponent} from "./servers/edit-server/edit-server.component";
 import {PageNotFoundComponent} from "./page-not-found/page-not-found.component";
 import {NgModule} from "@angular/core";
+import {AuthGuardService} from "./services/auth.guard.service";
+import {CanDeactivateGuardService} from "./services/can-deactivate-guard.service";
 
 const routes : Routes = [
   {
@@ -25,6 +27,8 @@ const routes : Routes = [
   {
     path:'servers', //localhost:4200/servers
     component:ServersComponent,
+    // canActivate:[AuthGuardService],
+    canActivateChild:[AuthGuardService],
     children:[
       {
         path:':id', //localhost:4200/servers/:id/edit
@@ -32,7 +36,8 @@ const routes : Routes = [
       },
       {
         path:':id/edit', //localhost:4200/servers/:id/edit
-        component:EditServerComponent
+        component:EditServerComponent,
+        canDeactivate:[CanDeactivateGuardService]
       }
     ]
   },

@@ -13,14 +13,17 @@
     </div>
   </div>
   <div class="col-xs-12 col-sm-4">
+
+    <router-outlet/>
+
     <!-- Below router link uses the relative path. -->
     <!--<a routerLink="servers">Reload Page</a>-->
 
     <!-- Below Router Link uses the absolute path. -->
-    <button class="btn btn-primary" (click)="onReloadPage()" routerLink="/servers">Reload Page</button>
+<!--    <button class="btn btn-primary" (click)="onReloadPage()" routerLink="/servers">Reload Page</button>-->
 
-    <app-edit-server></app-edit-server>
-    <hr>
+<!--    <app-edit-server></app-edit-server>-->
+<!--    <hr>-->
 <!--    <app-server></app-server>-->
   </div>
 </div>

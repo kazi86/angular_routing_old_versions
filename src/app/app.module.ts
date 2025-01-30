@@ -21,24 +21,29 @@ const routes : Routes = [
   },
   {
     path:'users', //localhost:4200/users
-    component:UsersComponent
+    component:UsersComponent,
+    children:[
+      {
+      path:':id/:user-name', //localhost:4200/users/:id/user-name
+      component:UserComponent
+    },]
   },
-  {
-    path:'users/:id/:user-name', //localhost:4200/users
-    component:UserComponent
-  },
+
   {
     path:'servers', //localhost:4200/servers
-    component:ServersComponent
+    component:ServersComponent,
+    children:[
+      {
+        path:':id', //localhost:4200/servers/:id/edit
+        component:ServerComponent
+      },
+      {
+        path:':id/edit', //localhost:4200/servers/:id/edit
+        component:EditServerComponent
+      }
+    ]
   },
-  {
-    path:'servers/:id', //localhost:4200/servers/:id/edit
-    component:EditServerComponent
-  },
-  {
-    path:'servers/:id/edit', //localhost:4200/servers/:id/edit
-    component:ServerComponent
-  }
+
 ];
 
 @NgModule({

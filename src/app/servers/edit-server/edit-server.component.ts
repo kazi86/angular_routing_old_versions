@@ -16,14 +16,20 @@ export class EditServerComponent implements OnInit {
 
   public serverStatus = '';
 
+  public allowEdit : boolean = false;
+
   constructor(private serversService: ServersService,private route: ActivatedRoute) { }
 
   public ngOnInit() {
 
-    console.log(this.route.snapshot.queryParams); // For non-reactive queryParams value
-    console.log(this.route.snapshot.fragment); // For non-reactive fragments value
+    // console.log(this.route.snapshot.queryParams); // For non-reactive queryParams value
+    // console.log(this.route.snapshot.fragment); // For non-reactive fragments value
 
-    this.route.queryParams.subscribe(); // For reactive queryParams values
+    this.route.queryParams.subscribe({
+      next:(queryParam)=>{
+        this.allowEdit = queryParam['allowEdit'] === '1' ? true : false;
+      }
+    }); // For reactive queryParams values
     this.route.fragment.subscribe(); // For reactive fragment values
 
     this.server = this.serversService.getServer(1);

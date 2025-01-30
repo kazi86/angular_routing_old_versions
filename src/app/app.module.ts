@@ -30,6 +30,14 @@ const routes : Routes = [
   {
     path:'servers', //localhost:4200/servers
     component:ServersComponent
+  },
+  {
+    path:'servers/:id', //localhost:4200/servers/:id/edit
+    component:EditServerComponent
+  },
+  {
+    path:'servers/:id/edit', //localhost:4200/servers/:id/edit
+    component:ServerComponent
   }
 ];
 
